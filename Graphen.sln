@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31605.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphen", "Graphen\Graphen.csproj", "{B06B1531-80AA-4A2E-A1F7-9ED175330385}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B06B1531-80AA-4A2E-A1F7-9ED175330385}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B06B1531-80AA-4A2E-A1F7-9ED175330385}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B06B1531-80AA-4A2E-A1F7-9ED175330385}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B06B1531-80AA-4A2E-A1F7-9ED175330385}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FE2A51F7-BCFD-4F4F-97F3-05365270284A}
+	EndGlobalSection
+EndGlobal
