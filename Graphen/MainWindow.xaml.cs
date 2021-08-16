@@ -45,8 +45,8 @@ namespace Graphen
                 {
                     m = Int32.Parse(mf.Text);
                     t = Int32.Parse(tf.Text);
-                    btnStart(500, 225-(t*10), 500 + 1000, 225-t*10 - m*1000);
-            btnStart(500, 225 - (t * 10), 500 - 1000, 225 - t * 10 + m * 1000);
+                    drawLine(500, 225-(t*10), 500 + 1000, 225-t*10 - m*1000);
+                    drawLine(500, 225 - (t * 10), 500 - 1000, 225 - t * 10 + m * 1000);
                 }
                 else { }
             }
@@ -56,7 +56,7 @@ namespace Graphen
             
         }
 
-        private void btnStart(int x1, int y1, int x2, int y2)
+        private void drawLine(int x1, int y1, int x2, int y2)
         {
             Line objLine = new Line();
 
