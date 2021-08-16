@@ -27,7 +27,7 @@ namespace Graphen
         int ti=0;
         public MainWindow()
         {
-            DispatcherTimer D = new System.Windows.Threading.DispatcherTimer();
+            DispatcherTimer D = new DispatcherTimer();
             D.Interval = TimeSpan.FromMilliseconds(25);
             D.Tick += D_Tick;
             D.Start();
@@ -38,20 +38,19 @@ namespace Graphen
 
         private void D_Tick(object sender, EventArgs e)
         {
-            if (Keyboard.IsKeyDown(Key.Enter))
+            if (Keyboard.IsKeyDown(Key.Enter) || btn.IsPressed==true)
             {
 
                 if (mf.Text != "" && tf.Text != "")
                 {
                     m = Int32.Parse(mf.Text);
                     t = Int32.Parse(tf.Text);
-                    drawLine(500, 225-(t*10), 500 + 1000, 225-t*10 - m*1000);
-                    drawLine(500, 225 - (t * 10), 500 - 1000, 225 - t * 10 + m * 1000);
+                    drawLine(500, 225-(t*20), 500 + 1000, 225-t*20 - m*1000);
+                    drawLine(500, 225 - (t * 20), 500 - 1000, 225 - t * 20 + m * 1000);
                 }
                 else { }
             }
             ti++;
-            L.Content = ti;
             L2.Content = m;
             
         }
