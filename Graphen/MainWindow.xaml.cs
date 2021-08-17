@@ -24,7 +24,7 @@ namespace Graphen
     {
         int m;
         int t;
-        int ti=0;
+        int unitstobarrier=15;
         public MainWindow()
         {
             DispatcherTimer D = new DispatcherTimer();
@@ -46,11 +46,10 @@ namespace Graphen
                     m = Int32.Parse(mf.Text);
                     t = Int32.Parse(tf.Text);
                     drawLine(500, 225-(t*20), 500 + 1000, 225-t*20 - m*1000);
-                    drawLine(500, 225 - (t * 20), 500 - 1000, 225 - t * 20 + m * 1000);
+                    drawLine(500, 225 - (t * 20), 500-20*unitstobarrier, 225-(m*20*(-unitstobarrier)+t*20));
                 }
                 else { }
             }
-            ti++;
             L2.Content = m;
             
         }
