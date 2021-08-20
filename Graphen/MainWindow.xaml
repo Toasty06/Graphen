@@ -10,17 +10,6 @@
         <Label Content="y  =          *x + " Canvas.Left="-3" FontSize="18" Canvas.Top="45"/>
         <TextBox x:Name="mf" TextWrapping="Wrap" Width="43" Background="{x:Null}" FontSize="18" Canvas.Left="37" Text="" BorderBrush="Black" Canvas.Top="51"/>
         <TextBox x:Name="tf" TextWrapping="Wrap" Width="43" Background="{x:Null}" FontSize="18" Canvas.Left="120" Text="" BorderBrush="Black" Canvas.Top="51"/>
-        <Rectangle Height="584" Stroke="Black" Width="2" Canvas.Top="-68" Canvas.Left="492" Fill="Black" RenderTransformOrigin="0.5,0.5" RadiusX="0" RadiusY="0">
-            <Rectangle.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-90"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Rectangle.RenderTransform>
-        </Rectangle>
-        <Rectangle Height="450" Stroke="Black" Width="2" Canvas.Top="0" Canvas.Left="500" Fill="Black"/>
         <Rectangle x:Name="Graph" Height="15
                    " Stroke="Black" Width="2" Canvas.Left="497" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="-1">
             <Rectangle.RenderTransform>
@@ -107,7 +96,7 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Rectangle x:Name="Graph_Copy7" Height="5" Stroke="Black" Width="1" Canvas.Left="502" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="123">
+        <Rectangle x:Name="Graph_Copy7" Height="5" Stroke="Black" Width="1" Canvas.Left="502" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="122">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
