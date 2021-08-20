@@ -6,12 +6,12 @@
         mc:Ignorable="d"
         Title="Graphs v0.0.3" Height="450" Width="800" Background="{x:Null}" ResizeMode="NoResize" Icon="/graph+graph+growth+growth+graph+line+graph+icon+icon-1320086625366433865.png">
     <Canvas x:Name="paint" Background="White">
-        <Rectangle Height="450" Stroke="Black" Width="3" Canvas.Top="0" Canvas.Left="200" Fill="Black"/>
+        <Rectangle Height="450" Stroke="Black" Width="3" Canvas.Top="0" Canvas.Left="197" Fill="Black"/>
         <Label Content="y  =          *x + " Canvas.Left="-3" FontSize="18" Canvas.Top="45"/>
         <TextBox x:Name="mf" TextWrapping="Wrap" Width="43" Background="{x:Null}" FontSize="18" Canvas.Left="37" Text="" BorderBrush="Black" Canvas.Top="51"/>
         <TextBox x:Name="tf" TextWrapping="Wrap" Width="43" Background="{x:Null}" FontSize="18" Canvas.Left="120" Text="" BorderBrush="Black" Canvas.Top="51"/>
         <Rectangle x:Name="Graph" Height="15
-                   " Stroke="Black" Width="2" Canvas.Left="497" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="-1">
+                   " Stroke="Black" Width="2" Canvas.Left="496" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="-1">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -23,7 +23,7 @@
         </Rectangle>
         <Label x:Name="L2" Content="Label" Canvas.Top="398"/>
         <Label x:Name="L2_Copy" Content="Eingabe:" Canvas.Left="-3" FontSize="24" Width="110" Canvas.Top="-1" FontWeight="Bold"/>
-        <Rectangle x:Name="Graph_Copy" Height="15                    " Stroke="Black" Width="2" Canvas.Left="503" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="-1">
+        <Rectangle x:Name="Graph_Copy" Height="15                    " Stroke="Black" Width="2" Canvas.Left="502" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="-1">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -53,8 +53,8 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Label Content="x" Canvas.Left="770" Canvas.Top="222"/>
-        <Label Content="y" Canvas.Left="507" Canvas.Top="-9"/>
+        <Label Content="x" Canvas.Left="757" Canvas.Top="225"/>
+        <Label Content="y" Canvas.Left="506" Canvas.Top="6"/>
         <Rectangle x:Name="Graph_Copy3" Height="5" Stroke="Black" Width="1" Canvas.Left="502" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="202">
             <Rectangle.RenderTransform>
                 <TransformGroup>

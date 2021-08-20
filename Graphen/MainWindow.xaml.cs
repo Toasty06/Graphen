@@ -1,18 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Drawing;
 using System.Windows.Threading;
 
 namespace Graphen
@@ -22,16 +12,19 @@ namespace Graphen
     /// </summary>
     public partial class MainWindow : Window
     {
-        int m;
-        int t;
-        int unitstobarrier=15;
-        int gridx=0;
-        int gridy=3;
-        int count=0;
-
+        double m;
+        double t;
+        double unitstobarrierleft = 7.5;
+        double unitstobarrierup=4.5;
+        int gridx = -1;
+        int gridy = 4;
+        int count = 0;
+        bool drawn = false;
+        double oldt;
+        double oldm;
         public MainWindow()
         {
-           
+
             DispatcherTimer D = new DispatcherTimer();
             D.Interval = TimeSpan.FromMilliseconds(25);
             D.Tick += D_Tick;
@@ -40,43 +33,60 @@ namespace Graphen
             InitializeComponent();
             InitGrid();
             InitAxis();
-            }
-            
+
+        }
+
 
         private void D_Tick(object sender, EventArgs e)
         {
-            if (Keyboard.IsKeyDown(Key.Enter) || btn.IsPressed==true)
+
+            if (Keyboard.IsKeyDown(Key.Enter) || btn.IsPressed == true)
             {
 
                 if (mf.Text != "" && tf.Text != "")
                 {
-                    m = Int32.Parse(mf.Text);
-                    t = Int32.Parse(tf.Text);
-                    drawLine(500, 225-(t*20), 500 + 1000, 225-t*20 - m*1000,1, Brushes.Red);
-                    drawLine(500, 225 - (t * 20), 500-20*unitstobarrier, 225-(m*20*(-unitstobarrier)+t*20),1,Brushes.Red);
+                    m = double.Parse(mf.Text);
+                    t = double.Parse(tf.Text);
+                    if (drawn == false)
+                    {
+                        DrawGraph();
+                        oldm = m;
+                        oldt = t;
+                        drawn = true;
+                    }
+                    else if (drawn == true && (oldm!=m || oldt!=t))
+                    {
+                        try
+                        {
+                            paint.Children.RemoveAt(6464);
+                            paint.Children.RemoveAt(6463);
+                        }
+                        catch { }
+                        DrawGraph();
+                        drawn = false;
+                    }
                 }
-                else { }
+
+
             }
             L2.Content = m;
 
         }
 
-        private void drawLine(int x1, int y1, int x2, int y2,int st, System.Windows.Media.Brush cl)
+        public void drawLine(double x1, double y1, double down, double right, int thickness, System.Windows.Media.Brush cl)
         {
-            Line objLine = new Line();
-
-
-            objLine.Stroke = cl;
-            objLine.Fill = cl;
-            objLine.StrokeThickness = st;
-
-            objLine.X1 = x1;
-            objLine.Y1 = y1;
-
-            objLine.X2 = x2;
-            objLine.Y2 = y2;
-
-            paint.Children.Add(objLine);
+            if (drawn == false)
+            {
+                System.Windows.Shapes.Line myLine = new System.Windows.Shapes.Line();
+                myLine.Stroke = cl;
+                Canvas.SetLeft(myLine, x1);
+                Canvas.SetTop(myLine, y1);
+                myLine.X1 = right;
+                myLine.Y1 = down;
+                myLine.StrokeThickness = thickness;
+                myLine.Name = "ThicBoi";
+                paint.Children.Add(myLine);
+            }
 
         }
         private void drawGrid(int topx, int topy)
@@ -91,21 +101,26 @@ namespace Graphen
         }
         private void InitAxis()
         {
-            drawLine(501, 0, 501, 450,2, Brushes.Black);
-            drawLine(200, 225, 800, 225, 2, Brushes.Black);
+            drawLine(500, 0, 450, 0, 2, Brushes.Black);
+            drawLine(200, 224, 0, 600, 2, Brushes.Black);
 
+        }
+        private void DrawGraph()
+        {
+            drawLine(500, 225 - (t * 40), -1000*m, 1000, 1, Brushes.Red);
+            drawLine(500, 225 - (t * 40), 40 * unitstobarrierleft * m, -unitstobarrierleft * 40, 1, Brushes.Red);
         }
 
         private void InitGrid()
         {
             int i = 0;
-            while (i < 200)
+            while (i < 22)
             {
                 drawGrid(500 + gridx, gridy);
                 gridx = gridx + 20;
                 if (count == 15)
                 {
-                    gridx = 0;
+                    gridx = -1;
                     gridy = gridy + 20;
                     count = 0;
                     i++;
@@ -115,17 +130,17 @@ namespace Graphen
                     count++;
                 }
             }
-            gridx = 0;
-            gridy = 3;
+            gridx = 1;
+            gridy = 4;
             count = 0;
             i = 0;
-            while (i < 200)
+            while (i < 22)
             {
                 drawGrid(500 - gridx, gridy);
                 gridx = gridx + 20;
                 if (count == 15)
                 {
-                    gridx = 0;
+                    gridx = 1;
                     gridy = gridy + 20;
                     count = 0;
                     i++;
