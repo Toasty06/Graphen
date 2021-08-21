@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -17,6 +18,14 @@ namespace Graphen
             get
             {
                 String version = "0.0.5.1";
+                return "Graphs v" + version;
+            }
+        }
+        public string WindowTitle
+        {
+            get
+            {
+                String version = "0.0.5";
                 return "Graphs v" + version;
             }
         }
@@ -71,59 +80,35 @@ namespace Graphen
 
         private void D_Tick(object sender, EventArgs e)
         {
-            if (Keyboard.IsKeyDown(Key.S)&&first==true) { Init(); first = false; }
-
+            L2.Content = paint.Children.Count;
             if (Keyboard.IsKeyDown(Key.Enter) || btn.IsPressed == true)
             {
 
                 if (mf.Text != "" && tf.Text != "" && af.Text != "")
                 {
-                    try
+                    m = double.Parse(mf.Text);
+                    t = double.Parse(tf.Text);
+                    if (drawn == false)
                     {
-                        m = double.Parse(mf.Text);
-                        t = double.Parse(tf.Text);
-                        if (drawn == false)
-                        {
-                            DrawGraph();
-                            oldm = m;
-                            oldt = t;
-                            drawn = true;
-                        }
-                        else if (drawn == true && (oldm != m || oldt != t))
-                        {
-
-                            paint.Children.RemoveAt(paint.Children.Count - 1);
-                            paint.Children.RemoveAt(paint.Children.Count - 1);
-
-                            DrawGraph();
-                            drawn = false;
-                        } }
-                    catch { }
-
-
-
-                    if (mf.Text == "TOAST" && tf.Text == "BROT")
+                        DrawGraph();
+                        oldm = m;
+                        oldt = t;
+                        drawn = true;
+                    }
+                    else if (drawn == true && (oldm!=m || oldt!=t))
                     {
-                        paint.Children.RemoveAt(paint.Children.Count - 1);
-                        paint.Children.RemoveAt(paint.Children.Count - 1);
-                        //Parabel
-                        while (iz < 4)
-                        {
-                            
-                            iz = iz + 0.01;
-                            drawPoint(499 - iz * 20, 223 - iz * iz * 20);
-                            drawPoint(499 + iz * 20, 223 - iz * iz * 20);
-                        }
+                        
+                            paint.Children.RemoveAt(paint.Children.Count-1);
+                            paint.Children.RemoveAt(paint.Children.Count-1);
+                        
+                        DrawGraph();
+                        drawn = false;
                     }
                 }
+
+
             }
          
-        }
-        private void label()
-        {
-            olda = a;
-            oldm = m;
-            oldt = t;
         }
 
         public void drawLine(double x1, double y1, double down, double right, int thickness, System.Windows.Media.Brush cl)
@@ -141,8 +126,6 @@ namespace Graphen
                 
             }
 
-        }
-
         private void drawPoint(double topx, double topy)
         {
             System.Windows.Shapes.Rectangle myRect = new System.Windows.Shapes.Rectangle();
@@ -154,6 +137,7 @@ namespace Graphen
             myRect.Width = 2;
             paint.Children.Add(myRect);
         }
+
         private void drawGrid(int topx, int topy)
         {
             System.Windows.Shapes.Rectangle myRect = new System.Windows.Shapes.Rectangle();
@@ -166,12 +150,12 @@ namespace Graphen
         }
         private void InitAxis()
         {
-            drawLine(500, 4, 400, 0, 2, Brushes.Black);
-            drawLine(200, 224, 0, 14.5 *40, 2, Brushes.Black);
-            drawLine(500, 4, 20, -7, 2, Brushes.Black);
-            drawLine(500, 4, 20, 7, 2, Brushes.Black);
-            drawLine(779, 225, -7, -20, 2, Brushes.Black);
-            drawLine(779, 225, 7, -20, 2, Brushes.Black);
+            drawLine(500, 0, 450, 0, 2, Brushes.Black);
+            drawLine(200, 224, 0, 600, 2, Brushes.Black);
+            drawLine(500, 0, 20, -7, 2, Brushes.Black);
+            drawLine(500, 0, 20, 7, 2, Brushes.Black);
+            drawLine(778, 425, 7, -20, 2, Brushes.Black);
+            drawLine(778, 425, 7, 20, 2, Brushes.Black);
 
         }
         private void DrawGraph()
