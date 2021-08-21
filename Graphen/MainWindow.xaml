@@ -6,21 +6,490 @@
         mc:Ignorable="d"
         Title="{Binding WindowTitle, RelativeSource={RelativeSource Mode=Self}}" Height="450" Width="800" Background="{x:Null}" ResizeMode="CanResize" Icon="/graph+graph+growth+growth+graph+line+graph+icon+icon-1320086625366433865.png" SizeToContent="Manual">
     <Canvas x:Name="paint" Background="White">
-        <Rectangle x:Name="rec" Height="450" Stroke="Black" Width="3" Canvas.Top="0" Canvas.Left="197" Fill="Black" Visibility="Hidden"/>
-        <Label x:Name="l2" Content="y  =&#xD;&#xA;        " Canvas.Left="-3" FontSize="18" Canvas.Top="60" Height="36" Visibility="Hidden"/>
-        <TextBox x:Name="mf" TextWrapping="Wrap" Width="43" Background="{x:Null}" FontSize="18" Canvas.Left="37" Text="" BorderBrush="Black" Canvas.Top="99" Visibility="Hidden"/>
-        <TextBox x:Name="tf" TextWrapping="Wrap" Width="43" Background="{x:Null}" FontSize="18" Canvas.Left="37" Text="" BorderBrush="Black" Canvas.Top="134" Visibility="Hidden"/>
-        <Label x:Name="CTitle" Content="Eingabe:" Canvas.Left="-3" FontSize="24" Width="110" Canvas.Top="-1" FontWeight="Bold" Visibility="Hidden"/>
-        <Label x:Name="x" Content="x" Canvas.Left="757" Canvas.Top="225" Visibility="Hidden"/>
-        <Label x:Name="y" Content="y" Canvas.Left="506" Canvas.Top="6" Visibility="Hidden"/>
-        <Button x:Name="btn" Content="Generieren" Canvas.Left="2" Canvas.Top="169" Visibility="Hidden"/>
-        <Label x:Name="l1" Content="x²    " FontSize="18" Canvas.Top="60" Height="36" Canvas.Left="77" Visibility="Hidden"/>
-        <TextBox x:Name="af" TextWrapping="Wrap" Width="43" Background="{x:Null}" FontSize="18" Canvas.Left="37" Text="" BorderBrush="Black" Canvas.Top="64" Visibility="Hidden"/>
-        <Label x:Name="x1" Content="x    " FontSize="18" Canvas.Top="95" Height="36" Canvas.Left="77" Visibility="Hidden"/>
-        <Label x:Name="pl2" Content="+    " FontSize="18" Canvas.Top="95" Height="36" Canvas.Left="17" Visibility="Hidden"/>
-        <Label x:Name="pl3" Content="+    " FontSize="18" Canvas.Top="130" Height="36" Canvas.Left="17" Visibility="Hidden"/>
-        <Button Content="y=m*x+t" Canvas.Left="375" Canvas.Top="123"/>
-        <Button Content="y=a*x²+b*x+c" Canvas.Left="361" Canvas.Top="163"/>
+        <Rectangle Height="450" Stroke="Black" Width="3" Canvas.Top="0" Canvas.Left="197" Fill="Black"/>
+        <Label Content="y  =          *x + " Canvas.Left="-3" FontSize="18" Canvas.Top="45"/>
+        <TextBox x:Name="mf" TextWrapping="Wrap" Width="43" Background="{x:Null}" FontSize="18" Canvas.Left="37" Text="" BorderBrush="Black" Canvas.Top="51"/>
+        <TextBox x:Name="tf" TextWrapping="Wrap" Width="43" Background="{x:Null}" FontSize="18" Canvas.Left="120" Text="" BorderBrush="Black" Canvas.Top="51"/>
+        <Label x:Name="L2" Content="Label" Canvas.Top="398"/>
+        <Label x:Name="L2_Copy" Content="Eingabe:" Canvas.Left="-3" FontSize="24" Width="110" Canvas.Top="-1" FontWeight="Bold"/>
+        <Label Content="x" Canvas.Left="757" Canvas.Top="225"/>
+        <Label Content="y" Canvas.Left="506" Canvas.Top="6"/>
+        <Rectangle x:Name="Graph_Copy3" Height="5" Stroke="Black" Width="1" Canvas.Left="502" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="202">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Button x:Name="btn" Content="Generieren" Canvas.Left="2" Canvas.Top="87"/>
+        <Rectangle x:Name="Graph_Copy4" Height="5" Stroke="Black" Width="1" Canvas.Left="502" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="182">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy5" Height="5" Stroke="Black" Width="1" Canvas.Left="502" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="162">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy6" Height="5" Stroke="Black" Width="1" Canvas.Left="502" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="142">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy7" Height="5" Stroke="Black" Width="1" Canvas.Left="502" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="122">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy8" Height="5" Stroke="Black" Width="1" Canvas.Left="502" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="102">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy9" Height="5" Stroke="Black" Width="1" Canvas.Left="502" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="82">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy10" Height="5" Stroke="Black" Width="1" Canvas.Left="502" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="62">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy11" Height="5" Stroke="Black" Width="1" Canvas.Left="502" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="42">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy12" Height="5" Stroke="Black" Width="1" Canvas.Left="502" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="22">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy13" Height="5" Stroke="Black" Width="1" Canvas.Left="502" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="422">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90.7"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy14" Height="5" Stroke="Black" Width="1" Canvas.Left="502" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="402">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90.7"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy15" Height="5" Stroke="Black" Width="1" Canvas.Left="502" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="382">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90.7"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy16" Height="5" Stroke="Black" Width="1" Canvas.Left="502" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="362">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90.7"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy17" Height="5" Stroke="Black" Width="1" Canvas.Left="502" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="342">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90.7"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy18" Height="5" Stroke="Black" Width="1" Canvas.Left="502" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="322">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90.7"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy19" Height="5" Stroke="Black" Width="1" Canvas.Left="502" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="302">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90.7"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy20" Height="5" Stroke="Black" Width="1" Canvas.Left="502" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="282">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90.7"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy21" Height="5" Stroke="Black" Width="1" Canvas.Left="502" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="262">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90.7"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy22" Height="5" Stroke="Black" Width="1" Canvas.Left="502" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="242">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90.7"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy23" Height="5" Stroke="Black" Width="1" Canvas.Left="479" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="224">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy24" Height="5" Stroke="Black" Width="1" Canvas.Left="459" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="224">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy25" Height="5" Stroke="Black" Width="1" Canvas.Left="439" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="224">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy26" Height="5" Stroke="Black" Width="1" Canvas.Left="419" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="224">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy27" Height="5" Stroke="Black" Width="1" Canvas.Left="399" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="224">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy28" Height="5" Stroke="Black" Width="1" Canvas.Left="379" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="224">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy29" Height="5" Stroke="Black" Width="1" Canvas.Left="359" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="224">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy30" Height="5" Stroke="Black" Width="1" Canvas.Left="339" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="224">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy31" Height="5" Stroke="Black" Width="1" Canvas.Left="319" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="224">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy32" Height="5" Stroke="Black" Width="1" Canvas.Left="299" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="224">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy33" Height="5" Stroke="Black" Width="1" Canvas.Left="279" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="224">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy34" Height="5" Stroke="Black" Width="1" Canvas.Left="259" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="224">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy35" Height="5" Stroke="Black" Width="1" Canvas.Left="239" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="224">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy36" Height="5" Stroke="Black" Width="1" Canvas.Left="219" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="224">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy38" Height="5" Stroke="Black" Width="1" Canvas.Left="759" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="224">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy39" Height="5" Stroke="Black" Width="1" Canvas.Left="739" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="224">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy40" Height="5" Stroke="Black" Width="1" Canvas.Left="719" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="224">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy41" Height="5" Stroke="Black" Width="1" Canvas.Left="699" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="224">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy42" Height="5" Stroke="Black" Width="1" Canvas.Left="679" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="224">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy43" Height="5" Stroke="Black" Width="1" Canvas.Left="659" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="224">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy44" Height="5" Stroke="Black" Width="1" Canvas.Left="639" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="224">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy45" Height="5" Stroke="Black" Width="1" Canvas.Left="619" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="224">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy46" Height="5" Stroke="Black" Width="1" Canvas.Left="599" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="224">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy47" Height="5" Stroke="Black" Width="1" Canvas.Left="579" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="224">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy48" Height="5" Stroke="Black" Width="1" Canvas.Left="559" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="224">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy49" Height="5" Stroke="Black" Width="1" Canvas.Left="539" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="224">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Graph_Copy50" Height="5" Stroke="Black" Width="1" Canvas.Left="519" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="224">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+
+
+
+
+
 
     </Canvas>
 </Window>
