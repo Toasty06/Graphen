@@ -24,15 +24,17 @@ namespace Graphen
         double m;
         double t;
         double unitstobarrierleft = 7.5;
-        double unitstobarrierup = 4.5;
+        double a=0;
         int gridx = -1;
         int gridy = 4;
         int count = 0;
         bool drawn = false;
+        double olda;
         double oldt;
         double oldm;
         double iz = 0;
-
+        int  up;
+        bool delete;
         public MainWindow()
         {
 
@@ -46,59 +48,102 @@ namespace Graphen
             InitializeComponent();
             InitGrid();
             InitAxis();
-
+            label();
         }
 
 
         private void D_Tick(object sender, EventArgs e)
         {
-            L2.Content = paint.Children.Count;
             if (Keyboard.IsKeyDown(Key.Enter) || btn.IsPressed == true)
             {
 
-                if (mf.Text != "" && tf.Text != "")
+                if (mf.Text != "" && tf.Text != "" && af.Text != "")
                 {
                     try
                     {
+                        a = double.Parse(af.Text);
                         m = double.Parse(mf.Text);
                         t = double.Parse(tf.Text);
+                        
+                        
                         if (drawn == false)
                         {
-                            DrawGraph();
-                            oldm = m;
-                            oldt = t;
-                            drawn = true;
+                            if (af.Text != "" && af.Text!="0")
+                            {
+                                if (a > 0 )
+                                {
+                                    up = 1;
+                                }
+                                else { up = -1;
+                                }
+
+                                drawParabel(500,t,up,a);
+                                label();
+                                drawn = true;
+                            }
+                            else
+                            {
+                                DrawGraph();
+                                label();
+                                drawn = true;
+                            }
                         }
-                        else if (drawn == true && (oldm != m || oldt != t))
+                        else if (drawn == true && (oldm != m || oldt != t || olda!=a))
                         {
+                            delete = true;
+                            while (paint.Children.Count - 1 > 672&&delete==true)
+                            {
+                                paint.Children.RemoveAt(paint.Children.Count - 1);
+                                paint.Children.RemoveAt(paint.Children.Count - 1);
+                            }
+                            delete = false;
+                            
+                            if (af.Text != "" && af.Text != "0")
+                            {
+                                if (a > 0)
+                                {
+                                    up = 1;
+                                }
+                                else
+                                {
+                                    up = -1;
+                                }
 
-                            paint.Children.RemoveAt(paint.Children.Count - 1);
-                            paint.Children.RemoveAt(paint.Children.Count - 1);
+                                drawParabel(500, t, up, a);
+                                label();
 
-                            DrawGraph();
-                            drawn = false;
-                        }
-                    }
+
+                                drawn = true;
+                            }
+                            else
+                            {
+                                DrawGraph();
+                                label();
+                                drawn = true;
+                            }
+                        } }
                     catch { }
-
-
 
                     if (mf.Text == "TOAST" && tf.Text == "BROT")
                     {
-                        paint.Children.RemoveAt(paint.Children.Count - 1);
-                        paint.Children.RemoveAt(paint.Children.Count - 1);
-                        //Parabel
-                        while (iz < 4)
-                        {
-
-                            iz = iz + 0.01;
-                            drawPoint(499 - iz * 20, 223 - iz * iz * 20);
-                            drawPoint(499 + iz * 20, 223 - iz * iz * 20);
-                        }
+                        
+                        
                     }
                 }
             }
-
+         
+        }
+        private void label()
+        {
+            olda = a;
+            oldm = m;
+            oldt = t;
+            L11.Content = paint.Children.Count;
+            L22.Content = m;
+            L33.Content = t;
+            L44.Content = olda;
+            L55.Content = oldm;
+            L66.Content = oldt;
         }
 
         public void drawLine(double x1, double y1, double down, double right, int thickness, System.Windows.Media.Brush cl)
@@ -118,7 +163,21 @@ namespace Graphen
             }
 
         }
-
+        private void drawParabel(double x, double y, int up , double stretch)
+        
+        
+        {
+            while (iz < 4)
+            {
+                L11.Content = a;
+                L44.Content = olda;
+                //Parabel
+                iz = iz + 0.001;
+                drawPoint(499 - iz * 40, 223-t*40 - up*iz * iz * 40*stretch);
+                drawPoint(499 + iz * 40, 223-t*40 - up*iz * iz * 40*stretch);
+            }
+            iz = 0;
+        }
         private void drawPoint(double topx, double topy)
         {
             System.Windows.Shapes.Rectangle myRect = new System.Windows.Shapes.Rectangle();
