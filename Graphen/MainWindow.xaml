@@ -12,36 +12,6 @@
         <TextBox x:Name="tf" TextWrapping="Wrap" Width="43" Background="{x:Null}" FontSize="18" Canvas.Left="120" Text="" BorderBrush="Black" Canvas.Top="51"/>
         <Label x:Name="L2" Content="Label" Canvas.Top="398"/>
         <Label x:Name="L2_Copy" Content="Eingabe:" Canvas.Left="-3" FontSize="24" Width="110" Canvas.Top="-1" FontWeight="Bold"/>
-        <Rectangle x:Name="Graph_Copy" Height="15                    " Stroke="Black" Width="2" Canvas.Left="502" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="-1">
-            <Rectangle.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-25"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Rectangle.RenderTransform>
-        </Rectangle>
-        <Rectangle x:Name="Graph_Copy1" Height="15                    " Stroke="Black" Width="2" Canvas.Top="220" Canvas.Left="777" Fill="Black" RenderTransformOrigin="0.5,0.5">
-            <Rectangle.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="65"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Rectangle.RenderTransform>
-        </Rectangle>
-        <Rectangle x:Name="Graph_Copy2" Height="15                    " Stroke="Black" Width="2" Canvas.Top="213" Canvas.Left="777" Fill="Black" RenderTransformOrigin="0.5,0.5">
-            <Rectangle.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-65"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Rectangle.RenderTransform>
-        </Rectangle>
         <Label Content="x" Canvas.Left="757" Canvas.Top="225"/>
         <Label Content="y" Canvas.Left="506" Canvas.Top="6"/>
         <Rectangle x:Name="Graph_Copy3" Height="5" Stroke="Black" Width="1" Canvas.Left="502" Fill="Black" RenderTransformOrigin="0.5,0.5" Canvas.Top="202">
