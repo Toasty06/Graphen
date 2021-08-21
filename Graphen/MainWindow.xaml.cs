@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -12,6 +13,14 @@ namespace Graphen
     /// </summary>
     public partial class MainWindow : Window
     {
+        public string WindowTitle
+        {
+            get
+            {
+                String version = "0.0.5";
+                return "Graphs v" + version;
+            }
+        }
         double m;
         double t;
         double unitstobarrierleft = 7.5;
@@ -24,6 +33,8 @@ namespace Graphen
         double oldm;
         public MainWindow()
         {
+
+
 
             DispatcherTimer D = new DispatcherTimer();
             D.Interval = TimeSpan.FromMilliseconds(25);
@@ -39,7 +50,7 @@ namespace Graphen
 
         private void D_Tick(object sender, EventArgs e)
         {
-
+            L2.Content = paint.Children.Count;
             if (Keyboard.IsKeyDown(Key.Enter) || btn.IsPressed == true)
             {
 
@@ -56,12 +67,10 @@ namespace Graphen
                     }
                     else if (drawn == true && (oldm!=m || oldt!=t))
                     {
-                        try
-                        {
-                            paint.Children.RemoveAt(6464);
-                            paint.Children.RemoveAt(6463);
-                        }
-                        catch { }
+                        
+                            paint.Children.RemoveAt(paint.Children.Count-1);
+                            paint.Children.RemoveAt(paint.Children.Count-1);
+                        
                         DrawGraph();
                         drawn = false;
                     }
@@ -69,8 +78,7 @@ namespace Graphen
 
 
             }
-            L2.Content = m;
-
+         
         }
 
         public void drawLine(double x1, double y1, double down, double right, int thickness, System.Windows.Media.Brush cl)
@@ -86,9 +94,11 @@ namespace Graphen
                 myLine.StrokeThickness = thickness;
                 myLine.Name = "ThicBoi";
                 paint.Children.Add(myLine);
+                
             }
 
         }
+
         private void drawGrid(int topx, int topy)
         {
             System.Windows.Shapes.Rectangle myRect = new System.Windows.Shapes.Rectangle();
@@ -103,6 +113,10 @@ namespace Graphen
         {
             drawLine(500, 0, 450, 0, 2, Brushes.Black);
             drawLine(200, 224, 0, 600, 2, Brushes.Black);
+            drawLine(500, 0, 20, -7, 2, Brushes.Black);
+            drawLine(500, 0, 20, 7, 2, Brushes.Black);
+            drawLine(778, 425, 7, -20, 2, Brushes.Black);
+            drawLine(778, 425, 7, 20, 2, Brushes.Black);
 
         }
         private void DrawGraph()
@@ -110,7 +124,6 @@ namespace Graphen
             drawLine(500, 225 - (t * 40), -1000*m, 1000, 1, Brushes.Red);
             drawLine(500, 225 - (t * 40), 40 * unitstobarrierleft * m, -unitstobarrierleft * 40, 1, Brushes.Red);
         }
-
         private void InitGrid()
         {
             int i = 0;
@@ -152,6 +165,7 @@ namespace Graphen
             }
 
         }
+
     }
 
 }
