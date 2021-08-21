@@ -17,7 +17,7 @@ namespace Graphen
         {
             get
             {
-                String version = "0.0.5";
+                String version = "0.0.5.1";
                 return "Graphs v" + version;
             }
         }
@@ -31,6 +31,8 @@ namespace Graphen
         bool drawn = false;
         double oldt;
         double oldm;
+        double iz = 0;
+
         public MainWindow()
         {
 
@@ -56,27 +58,44 @@ namespace Graphen
 
                 if (mf.Text != "" && tf.Text != "")
                 {
-                    m = double.Parse(mf.Text);
-                    t = double.Parse(tf.Text);
-                    if (drawn == false)
+                    try
                     {
-                        DrawGraph();
-                        oldm = m;
-                        oldt = t;
-                        drawn = true;
-                    }
-                    else if (drawn == true && (oldm!=m || oldt!=t))
+                        m = double.Parse(mf.Text);
+                        t = double.Parse(tf.Text);
+                        if (drawn == false)
+                        {
+                            DrawGraph();
+                            oldm = m;
+                            oldt = t;
+                            drawn = true;
+                        }
+                        else if (drawn == true && (oldm != m || oldt != t))
+                        {
+
+                            paint.Children.RemoveAt(paint.Children.Count - 1);
+                            paint.Children.RemoveAt(paint.Children.Count - 1);
+
+                            DrawGraph();
+                            drawn = false;
+                        } }
+                    catch { }
+
+
+
+                    if (mf.Text == "TOAST" && tf.Text == "BROT")
                     {
-                        
-                            paint.Children.RemoveAt(paint.Children.Count-1);
-                            paint.Children.RemoveAt(paint.Children.Count-1);
-                        
-                        DrawGraph();
-                        drawn = false;
+                        paint.Children.RemoveAt(paint.Children.Count - 1);
+                        paint.Children.RemoveAt(paint.Children.Count - 1);
+                        //Parabel
+                        while (iz < 4)
+                        {
+                            
+                            iz = iz + 0.01;
+                            drawPoint(499 - iz * 20, 223 - iz * iz * 20);
+                            drawPoint(499 + iz * 20, 223 - iz * iz * 20);
+                        }
                     }
                 }
-
-
             }
          
         }
@@ -99,6 +118,17 @@ namespace Graphen
 
         }
 
+        private void drawPoint(double topx, double topy)
+        {
+            System.Windows.Shapes.Rectangle myRect = new System.Windows.Shapes.Rectangle();
+            myRect.Stroke = System.Windows.Media.Brushes.Transparent;
+            myRect.Fill = Brushes.Red;
+            Canvas.SetLeft(myRect, topx);
+            Canvas.SetTop(myRect, topy);
+            myRect.Height = 2;
+            myRect.Width = 2;
+            paint.Children.Add(myRect);
+        }
         private void drawGrid(int topx, int topy)
         {
             System.Windows.Shapes.Rectangle myRect = new System.Windows.Shapes.Rectangle();
@@ -111,12 +141,12 @@ namespace Graphen
         }
         private void InitAxis()
         {
-            drawLine(500, 0, 450, 0, 2, Brushes.Black);
-            drawLine(200, 224, 0, 600, 2, Brushes.Black);
-            drawLine(500, 0, 20, -7, 2, Brushes.Black);
-            drawLine(500, 0, 20, 7, 2, Brushes.Black);
-            drawLine(778, 425, 7, -20, 2, Brushes.Black);
-            drawLine(778, 425, 7, 20, 2, Brushes.Black);
+            drawLine(500, 4, 400, 0, 2, Brushes.Black);
+            drawLine(200, 224, 0, 14.5 *40, 2, Brushes.Black);
+            drawLine(500, 4, 20, -7, 2, Brushes.Black);
+            drawLine(500, 4, 20, 7, 2, Brushes.Black);
+            drawLine(779, 225, -7, -20, 2, Brushes.Black);
+            drawLine(779, 225, 7, -20, 2, Brushes.Black);
 
         }
         private void DrawGraph()
@@ -127,11 +157,11 @@ namespace Graphen
         private void InitGrid()
         {
             int i = 0;
-            while (i < 22)
+            while (i < 20)
             {
                 drawGrid(500 + gridx, gridy);
                 gridx = gridx + 20;
-                if (count == 15)
+                if (count == 13)
                 {
                     gridx = -1;
                     gridy = gridy + 20;
@@ -147,7 +177,7 @@ namespace Graphen
             gridy = 4;
             count = 0;
             i = 0;
-            while (i < 22)
+            while (i < 20)
             {
                 drawGrid(500 - gridx, gridy);
                 gridx = gridx + 20;
