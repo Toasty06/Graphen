@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -35,6 +34,7 @@ namespace Graphen
         double iz = 0;
         int  up;
         bool delete;
+        bool first = true;
         public MainWindow()
         {
 
@@ -46,14 +46,35 @@ namespace Graphen
             D.Start();
 
             InitializeComponent();
-            InitGrid();
-            InitAxis();
-            label();
+            Show();
+            
         }
 
+        private void Init()
+        {
+            CTitle.Visibility = Visibility.Visible;
+            af.Visibility = Visibility.Visible;
+            mf.Visibility = Visibility.Visible;
+            tf.Visibility = Visibility.Visible;
+            l1.Visibility = Visibility.Visible;
+            l2.Visibility = Visibility.Visible;
+            btn.Visibility = Visibility.Visible;
+            x1.Visibility = Visibility.Visible;
+            pl3.Visibility = Visibility.Visible;
+            pl2.Visibility = Visibility.Visible;
+            rec.Visibility = Visibility.Visible;
+            x.Visibility = Visibility.Visible;
+            y.Visibility = Visibility.Visible;
+            InitGrid();
+            InitAxis();
+
+
+        }
 
         private void D_Tick(object sender, EventArgs e)
         {
+            if (Keyboard.IsKeyDown(Key.S)&&first==true) { Init(); first = false; }
+
             if (Keyboard.IsKeyDown(Key.Enter) || btn.IsPressed == true)
             {
 
@@ -138,12 +159,6 @@ namespace Graphen
             olda = a;
             oldm = m;
             oldt = t;
-            L11.Content = paint.Children.Count;
-            L22.Content = m;
-            L33.Content = t;
-            L44.Content = olda;
-            L55.Content = oldm;
-            L66.Content = oldt;
         }
 
         public void drawLine(double x1, double y1, double down, double right, int thickness, System.Windows.Media.Brush cl)
@@ -157,7 +172,6 @@ namespace Graphen
                 myLine.X1 = right;
                 myLine.Y1 = down;
                 myLine.StrokeThickness = thickness;
-                myLine.Name = "ThicBoi";
                 paint.Children.Add(myLine);
                 
             }
@@ -169,8 +183,7 @@ namespace Graphen
         {
             while (iz < 4)
             {
-                L11.Content = a;
-                L44.Content = olda;
+        
                 //Parabel
                 iz = iz + 0.001;
                 drawPoint(499 - iz * 40, 223-t*40 - up*iz * iz * 40*stretch);
@@ -211,8 +224,8 @@ namespace Graphen
         }
         private void DrawGraph()
         {
-            drawLine(500, 225 - (t * 40), -1000*m, 1000, 1, Brushes.Red);
-            drawLine(500, 225 - (t * 40), 40 * unitstobarrierleft * m, -unitstobarrierleft * 40, 1, Brushes.Red);
+            drawLine(500, 225 - (t * 40), -1000, 1000, 1, Brushes.Red);
+            drawLine(500, 225 - (t * 40), 40 * unitstobarrierleft, -unitstobarrierleft * 40, 1, Brushes.Red);
         }
         private void InitGrid()
         {
