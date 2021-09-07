@@ -24,12 +24,11 @@ namespace Graphen
         double m;
         double t;
         double unitstobarrierleft = 7.5;
-        double a=0;
+        double unitstobarrierup = 4.5;
         int gridx = -1;
         int gridy = 4;
         int count = 0;
         bool drawn = false;
-        double olda;
         double oldt;
         double oldm;
         double iz = 0;
@@ -45,30 +44,11 @@ namespace Graphen
             D.Start();
 
             InitializeComponent();
-            Show();
-            
-        }
-
-        private void Init()
-        {
-            CTitle.Visibility = Visibility.Visible;
-            af.Visibility = Visibility.Visible;
-            mf.Visibility = Visibility.Visible;
-            tf.Visibility = Visibility.Visible;
-            l1.Visibility = Visibility.Visible;
-            l2.Visibility = Visibility.Visible;
-            btn.Visibility = Visibility.Visible;
-            x1.Visibility = Visibility.Visible;
-            pl3.Visibility = Visibility.Visible;
-            pl2.Visibility = Visibility.Visible;
-            rec.Visibility = Visibility.Visible;
-            x.Visibility = Visibility.Visible;
-            y.Visibility = Visibility.Visible;
             InitGrid();
             InitAxis();
 
-
         }
+
 
         private void D_Tick(object sender, EventArgs e)
         {
@@ -76,7 +56,7 @@ namespace Graphen
             if (Keyboard.IsKeyDown(Key.Enter) || btn.IsPressed == true)
             {
 
-                if (mf.Text != "" && tf.Text != "" && af.Text != "")
+                if (mf.Text != "" && tf.Text != "")
                 {
                     try
                     {
@@ -97,7 +77,8 @@ namespace Graphen
 
                             DrawGraph();
                             drawn = false;
-                        } }
+                        }
+                    }
                     catch { }
 
 
@@ -109,7 +90,7 @@ namespace Graphen
                         //Parabel
                         while (iz < 4)
                         {
-                            
+
                             iz = iz + 0.01;
                             drawPoint(499 - iz * 20, 223 - iz * iz * 20);
                             drawPoint(499 + iz * 20, 223 - iz * iz * 20);
@@ -117,7 +98,7 @@ namespace Graphen
                     }
                 }
             }
-         
+
         }
 
         public void drawLine(double x1, double y1, double down, double right, int thickness, System.Windows.Media.Brush cl)
@@ -131,20 +112,11 @@ namespace Graphen
                 myLine.X1 = right;
                 myLine.Y1 = down;
                 myLine.StrokeThickness = thickness;
+                myLine.Name = "ThicBoi";
                 paint.Children.Add(myLine);
-                
+
             }
 
-        private void drawPoint(double topx, double topy)
-        {
-            System.Windows.Shapes.Rectangle myRect = new System.Windows.Shapes.Rectangle();
-            myRect.Stroke = System.Windows.Media.Brushes.Transparent;
-            myRect.Fill = Brushes.Red;
-            Canvas.SetLeft(myRect, topx);
-            Canvas.SetTop(myRect, topy);
-            myRect.Height = 2;
-            myRect.Width = 2;
-            paint.Children.Add(myRect);
         }
 
         private void drawPoint(double topx, double topy)
@@ -171,7 +143,7 @@ namespace Graphen
         private void InitAxis()
         {
             drawLine(500, 4, 400, 0, 2, Brushes.Black);
-            drawLine(200, 224, 0, 14.5 *40, 2, Brushes.Black);
+            drawLine(200, 224, 0, 14.5 * 40, 2, Brushes.Black);
             drawLine(500, 4, 20, -7, 2, Brushes.Black);
             drawLine(500, 4, 20, 7, 2, Brushes.Black);
             drawLine(779, 225, -7, -20, 2, Brushes.Black);
@@ -180,8 +152,8 @@ namespace Graphen
         }
         private void DrawGraph()
         {
-            drawLine(500, 225 - (t * 40), -1000, 1000, 1, Brushes.Red);
-            drawLine(500, 225 - (t * 40), 40 * unitstobarrierleft, -unitstobarrierleft * 40, 1, Brushes.Red);
+            drawLine(500, 225 - (t * 40), -1000 * m, 1000, 1, Brushes.Red);
+            drawLine(500, 225 - (t * 40), 40 * unitstobarrierleft * m, -unitstobarrierleft * 40, 1, Brushes.Red);
         }
         private void InitGrid()
         {
