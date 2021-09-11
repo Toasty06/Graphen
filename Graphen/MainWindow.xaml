@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Graphs v0.0.3" Height="450" Width="800" Background="{x:Null}" ResizeMode="NoResize" Icon="/graph+graph+growth+growth+graph+line+graph+icon+icon-1320086625366433865.png">
+        Title="Graphs" Height="450" Width="800" Background="{x:Null}" ResizeMode="NoResize" Icon="/graph+graph+growth+growth+graph+line+graph+icon+icon-1320086625366433865.png">
     <Canvas x:Name="paint" Background="White">
         <Rectangle Height="450" Stroke="Black" Width="3" Canvas.Top="0" Canvas.Left="197" Fill="Black"/>
         <Label Content="y  =&#xD;&#xA;        " Canvas.Left="-3" FontSize="18" Canvas.Top="60" Height="36"/>

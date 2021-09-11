@@ -7,19 +7,10 @@ using System.Windows.Threading;
 
 namespace Graphen
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+
     public partial class MainWindow : Window
     {
-        public string WindowTitle
-        {
-            get
-            {
-                String version = "0.1";
-                return "Graphs v" + version;
-            }
-        }
+        String version = "0.1"; //set version
         double m;
         double t;
         double unitstobarrierleft = 7.5;
@@ -32,7 +23,6 @@ namespace Graphen
         double oldt;
         double oldm;
         int children;
-        int up;
         bool delete;
         double iz = 0;
         
@@ -47,6 +37,7 @@ namespace Graphen
             D.Start();
 
             InitializeComponent();
+            Title = "Graphs v"+version;
             InitGrid();
             InitAxis();
             children = paint.Children.Count;
