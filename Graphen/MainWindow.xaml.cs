@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -17,14 +16,14 @@ namespace Graphen
         {
             get
             {
-                String version = "0.0.5.1";
+                String version = "0.1";
                 return "Graphs v" + version;
             }
         }
         double m;
         double t;
         double unitstobarrierleft = 7.5;
-        double a=0;
+        double a = 0;
         int gridx = -1;
         int gridy = 4;
         int count = 0;
@@ -32,9 +31,11 @@ namespace Graphen
         double olda;
         double oldt;
         double oldm;
-        double iz = 0;
-        int  up;
+        int children;
+        int up;
         bool delete;
+        double iz = 0;
+        
         public MainWindow()
         {
 
@@ -48,7 +49,8 @@ namespace Graphen
             InitializeComponent();
             InitGrid();
             InitAxis();
-            label();
+            children = paint.Children.Count;
+            L1_Copy.Content = paint.Children.Count;
         }
 
 
@@ -65,52 +67,37 @@ namespace Graphen
                         m = double.Parse(mf.Text);
                         t = double.Parse(tf.Text);
                         
-                        
+
                         if (drawn == false)
                         {
-                            if (af.Text != "" && af.Text!="0")
+                            if (af.Text != "" && af.Text != "0")
                             {
-                                if (a > 0 )
-                                {
-                                    up = 1;
-                                }
-                                else { up = -1;
-                                }
+                                
 
-                                drawParabel(500,t,up,a);
-                                label();
+                                drawParabel(a, m, t);
                                 drawn = true;
                             }
                             else
                             {
                                 DrawGraph();
-                                label();
                                 drawn = true;
                             }
                         }
-                        else if (drawn == true && (oldm != m || oldt != t || olda!=a))
+                        else if (drawn == true && (oldm != m || oldt != t || olda != a))
                         {
                             delete = true;
-                            while (paint.Children.Count - 1 > 672&&delete==true)
+                            while (paint.Children.Count >= children && delete == true)
                             {
                                 paint.Children.RemoveAt(paint.Children.Count - 1);
                                 paint.Children.RemoveAt(paint.Children.Count - 1);
                             }
                             delete = false;
-                            
+
                             if (af.Text != "" && af.Text != "0")
                             {
-                                if (a > 0)
-                                {
-                                    up = 1;
-                                }
-                                else
-                                {
-                                    up = -1;
-                                }
+                                
 
-                                drawParabel(500, t, up, a);
-                                label();
+                                drawParabel(a, m, t);
 
 
                                 drawn = true;
@@ -118,32 +105,20 @@ namespace Graphen
                             else
                             {
                                 DrawGraph();
-                                label();
                                 drawn = true;
                             }
-                        } }
+                        }
+                    }
                     catch { }
 
                     if (mf.Text == "TOAST" && tf.Text == "BROT")
                     {
-                        
-                        
+
+
                     }
                 }
             }
-         
-        }
-        private void label()
-        {
-            olda = a;
-            oldm = m;
-            oldt = t;
-            L11.Content = paint.Children.Count;
-            L22.Content = m;
-            L33.Content = t;
-            L44.Content = olda;
-            L55.Content = oldm;
-            L66.Content = oldt;
+
         }
 
         public void drawLine(double x1, double y1, double down, double right, int thickness, System.Windows.Media.Brush cl)
@@ -157,26 +132,87 @@ namespace Graphen
                 myLine.X1 = right;
                 myLine.Y1 = down;
                 myLine.StrokeThickness = thickness;
-                myLine.Name = "ThicBoi";
                 paint.Children.Add(myLine);
 
             }
 
         }
-        private void drawParabel(double x, double y, int up , double stretch)
-        
-        
+        private void drawParabel(double a2, double b2, double c2)
         {
-            while (iz < 4)
+
+            try
             {
-                L11.Content = a;
-                L44.Content = olda;
-                //Parabel
-                iz = iz + 0.001;
-                drawPoint(499 - iz * 40, 223-t*40 - up*iz * iz * 40*stretch);
-                drawPoint(499 + iz * 40, 223-t*40 - up*iz * iz * 40*stretch);
+                double a = Convert.ToDouble(a2);
+                double b = (double)Convert.ToDouble(b2);
+                double c = (double)Convert.ToDouble(c2);
+                double klammerfaktor = 1;
+                double afkt = 1;
+                double bfkt = 1;
+                
+                klammerfaktor = a;
+                bfkt = b / klammerfaktor;
+                Math.Round(bfkt, 3);
+                //Console.WriteLine(bfkt);
+                if (afkt < 0)
+                {
+                    klammerfaktor = -klammerfaktor;
+                    afkt = -1;
+                    bfkt = -bfkt;
+
+                }
+                else if (afkt > 0)
+                {
+                }
+                //Console.WriteLine(".............");
+                //DopGem
+                /*Console.WriteLine(bfkt / 2);
+                Console.WriteLine(klammerfaktor + "*(" + afkt + "*(x²+" + bfkt / 2 + "*2*x+" + (bfkt / 2) * (bfkt / 2) + "-" + (bfkt / 2) * (bfkt / 2) + ")+" + c5);
+                Console.WriteLine(".............");
+                Console.WriteLine(klammerfaktor + "(x+" + bfkt / 2 + ")²" + "(" + -bfkt / 2 + "^2))+" + c5);
+                Console.WriteLine(".............");
+                Console.WriteLine(klammerfaktor + "(x+" + bfkt / 2 + ")²" + "(" + -bfkt / 2 * bfkt / 2 + "))+" + c5);
+                Console.WriteLine(".............");
+                Console.Write(klammerfaktor + "(x+" + bfkt / 2 + ")²");
+                if ((klammerfaktor * -bfkt / 2 * bfkt / 2 + c5) < 0)
+                {
+                    Console.WriteLine((klammerfaktor * -bfkt / 2 * bfkt / 2 + c5));
+                }
+                else if ((klammerfaktor * -bfkt / 2 * bfkt / 2 + c5) > 0)
+                {
+                    Console.WriteLine("+" + (klammerfaktor * -bfkt / 2 * bfkt / 2 + c5));
+                }
+                else if ((klammerfaktor * -bfkt / 2 * bfkt / 2 + c5) == 0)
+                {
+                }
+                Console.WriteLine("----------------------------");
+                */
+                L1.Content = (klammerfaktor + "(x+" + bfkt / 2 + ")²" + (klammerfaktor * -bfkt / 2 * bfkt / 2 + c));
+
+                {
+                    while (iz < 4)
+                    {
+
+                        //Parabel
+                        iz = iz + 0.001;
+                        if (klammerfaktor > 0)
+                        {
+                            drawPoint(499- (double)(bfkt / 2)*40 - iz * 40, (223 - (klammerfaktor * -bfkt / 2 * bfkt / 2 + c) * 40) - (iz * iz * 40*klammerfaktor));
+                            drawPoint(499- (double)(bfkt / 2)*40 + iz * 40, (223 - (klammerfaktor * -bfkt / 2 * bfkt / 2 + c) * 40) - (iz * iz * 40*klammerfaktor));
+                        }
+                        
+                        
+                        else if (klammerfaktor < 0)
+                        {
+                            
+                            drawPoint(499 - (double)(bfkt / 2) * 40 - iz * 40, (223 - (klammerfaktor * -bfkt / 2 * bfkt / 2 + c) * 40) + (-iz * iz * 40 * klammerfaktor));
+                            drawPoint(499 - (double)(bfkt / 2) * 40 + iz * 40, (223 - (klammerfaktor * -bfkt / 2 * bfkt / 2 + c) * 40) + (-iz * iz * 40 * klammerfaktor));
+
+                        }
+                    }
+                    iz = 0;
+                }
             }
-            iz = 0;
+            catch { }
         }
         private void drawPoint(double topx, double topy)
         {
@@ -257,5 +293,4 @@ namespace Graphen
         }
 
     }
-
 }
