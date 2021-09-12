@@ -20,6 +20,10 @@
         <Label Content="+    " FontSize="18" Canvas.Top="95" Height="36" Canvas.Left="17"/>
         <Label x:Name="L1" Content="Label" Canvas.Top="317"/>
         <Label x:Name="L1_Copy" Content="Label" Canvas.Top="342"/>
+        <Button x:Name="btn_Copy" Content="Reset" Canvas.Left="90" Canvas.Top="169"/>
+        <Label x:Name="L5" Content="Label" Canvas.Top="317" Canvas.Left="80"/>
+        <Label x:Name="L6" Content="Label" Canvas.Top="349" Canvas.Left="80"/>
+        <Label x:Name="L7" Content="Label" Canvas.Top="375" Canvas.Left="80"/>
 
 
 
