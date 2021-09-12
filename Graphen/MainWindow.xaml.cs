@@ -39,8 +39,10 @@ namespace Graphen
             Title = "Graphs v" + version;
             InitGrid();
             InitAxis();
+            olda = a;
+            oldm = m;
+            oldt = t;
             children = paint.Children.Count;
-            L1_Copy.Content = paint.Children.Count;
         }
 
 
@@ -56,47 +58,29 @@ namespace Graphen
                         a = double.Parse(af.Text);
                         m = double.Parse(mf.Text);
                         t = double.Parse(tf.Text);
-                        L5.Content = a;
-                        L6.Content = m;
-                        L7.Content = t;
-
-
-
-
-
-                        if (drawn == false)
+                       
+                        if ((oldm != m || oldt != t || olda != a))
                         {
                             olda = a;
                             oldm = m;
                             oldt = t;
-                            if (af.Text != "" && af.Text != "0")
-                            {
-                                drawParabel(a, m, t);
-
-                                drawn = true;
-                            }
-                            else
-                            {
-                                DrawGraph();
-
-                                drawn = true;
-                            }
-                        }
-                        if (drawn == true && (oldm != m || oldt != t || olda != a))
-                        {
                             delete = true;
                             while (paint.Children.Count - 1 > children && delete == true)
                             {
                                 paint.Children.RemoveAt(paint.Children.Count - 1);
                                 paint.Children.RemoveAt(paint.Children.Count - 1);
                             }
-                            
+
                             delete = false;
-
-                            
+                            if (af.Text == "0" || af.Text == "")
+                            {
                                 DrawGraph();
+                            }
+                            else
+                            {
+                                drawParabel(a, m, t);
 
-                              
+                            }
                         }
                     }
 
@@ -176,7 +160,7 @@ namespace Graphen
                 }
                 Console.WriteLine("----------------------------");
                 */
-                L1.Content = (klammerfaktor + "(x+" + bfkt / 2 + ")²" + (klammerfaktor * -bfkt / 2 * bfkt / 2 + c));
+                L1.Content = (klammerfaktor + "(x+" + bfkt / 2 + ")²" +"+"+ (klammerfaktor * -bfkt / 2 * bfkt / 2 + c));
 
                 {
                     while (iz < 4)
