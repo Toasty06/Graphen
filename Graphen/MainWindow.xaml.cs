@@ -4,6 +4,9 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
+using System.Drawing;
+using Brushes = System.Windows.Media.Brushes;
+
 
 namespace Graphen
 {
@@ -11,6 +14,9 @@ namespace Graphen
     public partial class MainWindow : Window
     {
         String version = "0.1"; //set version
+        int gfr;
+        int gaf;
+        bool gg=true;
         double m;
         double t;
         double unitstobarrierleft = 7.5;
@@ -37,12 +43,17 @@ namespace Graphen
 
             InitializeComponent();
             Title = "Graphs v" + version;
+            gfr = paint.Children.Count;
             InitGrid();
+            gaf = paint.Children.Count;
             InitAxis();
             olda = a;
             oldm = m;
             oldt = t;
+            LL.Content = paint.Children.Count;
+            
             children = paint.Children.Count;
+
         }
 
 
@@ -89,11 +100,28 @@ namespace Graphen
                 }
 
             }
+            else if (gridcheck.IsChecked == false && gg == true)
+            {
 
+                paint.Children.RemoveRange(18, 1000);
+                InitAxis();
+                gg = false;
+            }
+            
+            else if (gridcheck.IsChecked == true && gg == false)
+            {
+                InitGrid();
+                InitAxis();
+                gg = true;
+            }
+            else if (Keyboard.IsKeyDown(Key.P))
+            {
+                
+            }
 
 
         }
-
+       
         public void drawLine(double x1, double y1, double down, double right, int thickness, System.Windows.Media.Brush cl)
         {
             if (drawn == false)
@@ -163,7 +191,7 @@ namespace Graphen
                 L1.Content = (klammerfaktor + "(x+" + bfkt / 2 + ")²" +"+"+ (klammerfaktor * -bfkt / 2 * bfkt / 2 + c));
 
                 {
-                    while (iz < 4)
+                    while (iz < 7)
                     {
 
                         //Parabel
@@ -217,7 +245,25 @@ namespace Graphen
             drawLine(500, 4, 20, 7, 2, Brushes.Black);
             drawLine(779, 225, -7, -20, 2, Brushes.Black);
             drawLine(779, 225, 7, -20, 2, Brushes.Black);
+            int z = -5;
+            while (z < 5)
+            {
+                if (z != 0)
+                {
+                    drawLine(495, 225 + z * 40, 0, 5, 2, Brushes.Black);
+                }
+                z++;
+            }
 
+            int z2 = -7;
+            while (z2 < 7)
+            {
+                if (z2 != 0)
+                {
+                    drawLine(500 + z2 * 40, 224, 5, 0, 1, Brushes.Black);
+                }
+                z2++;
+            }
         }
         private void DrawGraph()
         {
@@ -226,6 +272,9 @@ namespace Graphen
         }
         private void InitGrid()
         {
+            gridx = -1;
+            gridy = 4;
+            count = 0;
             int i = 0;
             while (i < 20)
             {
@@ -263,7 +312,10 @@ namespace Graphen
                     count++;
                 }
             }
-
+            gridx = 1;
+            gridy = 4;
+            count = 0;
+            i = 0;
         }
 
     }

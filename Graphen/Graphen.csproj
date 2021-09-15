@@ -16,6 +16,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
+    <PackageReference Include="System.Drawing.Common" Version="5.0.2" />
+    <PackageReference Include="System.Reactive.Windows.Forms" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="graph+graph+growth+growth+graph+line+graph+icon+icon-1320086625366433865.png" />
   </ItemGroup>
 

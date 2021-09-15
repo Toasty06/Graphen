@@ -6,7 +6,7 @@
         mc:Ignorable="d"
         Title="Graphs" Height="450" Width="800" Background="{x:Null}" ResizeMode="NoResize" Icon="/graph+graph+growth+growth+graph+line+graph+icon+icon-1320086625366433865.png">
     <Canvas x:Name="paint" Background="White">
-        <Rectangle Height="450" Stroke="Black" Width="3" Canvas.Top="0" Canvas.Left="197" Fill="Black"/>
+        <Rectangle x:Name="line" Height="450" Stroke="Black" Width="3" Canvas.Top="0" Canvas.Left="197" Fill="Black"/>
         <Label Content="y  =&#xD;&#xA;        " Canvas.Left="-3" FontSize="18" Canvas.Top="60" Height="36"/>
         <TextBox x:Name="af" TextWrapping="Wrap" Width="43" Background="{x:Null}" FontSize="18" Canvas.Left="37" Text="" BorderBrush="Black" Canvas.Top="64"/>
         <TextBox x:Name="mf" TextWrapping="Wrap" Width="43" Background="{x:Null}" FontSize="18" Canvas.Left="37" Text="" BorderBrush="Black" Canvas.Top="99"/>
@@ -21,6 +21,9 @@
         <Label x:Name="L1" Content="" Canvas.Top="317" Canvas.Left="8"/>
         <Label x:Name="L1_Copy" Content="Scheitelform für Parabel:" Canvas.Top="304"/>
         <Label Content="+    " FontSize="18" Canvas.Top="128" Height="36" Canvas.Left="17"/>
+        <Image x:Name="bild" Height="101" Canvas.Left="350" Canvas.Top="63" Width="133"/>
+        <Label x:Name="LL" Content="" Canvas.Top="371" Canvas.Left="8"/>
+        <CheckBox x:Name="gridcheck" Content="Kästchen" Canvas.Left="4" Canvas.Top="202" IsChecked="True"/>
 
 
 
